@@ -1,0 +1,8 @@
+.about__layout {
+    padding-inline: 6em;
+}
+@media screen and (width <= 768px) {
+    .about__layout {
+        padding: 0;
+    }
+}

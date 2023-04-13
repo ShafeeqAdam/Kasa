@@ -1,0 +1,16 @@
+.home__layout {
+    background-color: #f7f7f7;
+    max-width: 100%;
+    border-radius: 25px;
+    display: flex;
+    flex-wrap: wrap;
+  
+    a {
+      text-decoration: none;
+    }
+  }  
+@media screen and (width <= 768px) {
+    .home__layout {
+        background-color: transparent;
+    }
+}

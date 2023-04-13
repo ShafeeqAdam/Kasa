@@ -1,17 +1,58 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+//import css, composant, pages, librairie, reactdom
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./pages/Home.scss";
+import Home from "./pages/Home";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import Navbar from "./layout/Navbar";
+import Footer from "./layout/Footer";
+import Body from "./layout/Body";
+import AppartementPage from "./pages/AppartementPage";
+import About from "./pages/About";
+import ErrorPageNotFound from "./pages/ErrorPageNotFound";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+// definition de layout qui sera affiché sur toute les pages
+const Layout = () => {
+  return (
+    <>
+      <Navbar />
+      <Body>
+        <Outlet />
+      </Body>
+      <Footer />
+    </>
+  );
+};
+
+// Router pour la gestion de toute les routes
+const router = createBrowserRouter([
+  {
+    // affichage layout
+    element: <Layout />,
+    // affichage page d'erreur
+    errorElement: <ErrorPageNotFound />,
+    // définition des routes enfants
+    children: [
+      {
+        path: "/Accueil",
+        element: <Home />,
+      },
+      {
+        path: "/Logement",
+        element: <AppartementPage />,
+      },
+      {
+        path: "/Apropos",
+        element: <About />,
+      },
+    ],
+  },
+]);
+
+// racine react
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

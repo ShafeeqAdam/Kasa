@@ -1,0 +1,44 @@
+.navbar {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    padding: 2rem;
+    color: #FF6060;
+  
+    &__logo {
+      margin-right: auto;
+    }
+  
+    &__title {
+      color: #FF6060;
+    }
+  
+    a {
+      text-decoration: none;
+  
+      &:hover {
+        text-decoration: underline;
+        color: #FF6060;
+      }
+    }
+  }
+  
+
+@media screen and (width <= 768px) {
+  .navbar {
+  padding-bottom: 2em;   
+  gap: 0; 
+  .navbar__title {
+    font-size: small;
+    width: 5.2em;
+    text-transform: uppercase;
+    font-weight: 100;
+    &:active {
+      text-decoration: underline;
+    }
+    .navbar__logo {
+      width: 80%;
+    }
+  }
+}
+}

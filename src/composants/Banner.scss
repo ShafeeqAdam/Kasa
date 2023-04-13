@@ -1,0 +1,40 @@
+.banner {
+    position: relative;
+    height: 223px;
+    max-width: 100%;
+    display: flex;
+    top: 30px;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    opacity: 0.3;
+    border-radius: 25px;
+    margin-bottom: 5rem;
+    
+    &::before {
+        content: "";
+        /* background-image: url("../assets/banner.png");
+        background-size: cover;*/
+        position: absolute;
+        inset: 0;
+    }
+    
+    h2 {
+        position: relative;
+        color: #ffffff;
+        text-align: center;
+    }
+}
+
+
+@media screen and (width <= 768px) {
+    .banner h2 {
+        width: 65%;
+        text-align: left;
+    }
+    .banner {
+        height: 150px;
+        margin-bottom: 2rem;
+        top: 0px;
+    }
+}
