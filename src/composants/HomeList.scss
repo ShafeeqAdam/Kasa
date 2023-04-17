@@ -12,5 +12,8 @@
 @media screen and (width <= 768px) {
     .home__layout {
         background-color: transparent;
+        align-items: center;
+        flex-wrap: nowrap;
+        flex-direction: column;
     }
 }

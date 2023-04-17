@@ -1,0 +1,46 @@
+.carousel {
+    position: relative;
+  
+    .carousel__image img{
+      width: 100%;
+      object-fit: cover;
+      height: 600px;
+      border-radius: 1em;
+    }
+  
+    .btn-previous,
+    .btn-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #fff;
+      font-size: 4rem;
+      cursor: pointer;
+    }
+  
+    .btn-previous {
+      left: 0.5em;
+    }
+  
+    .btn-next {
+      right: 0.5em;
+    }
+  }
+  
+      
+@media screen and (width <= 768px) {
+    .carousel{  
+    .carousel__image img {
+        height: 250px;
+    } 
+    .btn-previous{
+        font-size: 2em;
+        left: 0.1em;
+    }
+    .btn-next {
+        font-size: 2em;
+        right: 0.1em;
+    }
+}
+
+}
