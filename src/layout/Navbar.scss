@@ -7,8 +7,10 @@
   
     &__logo {
       margin-right: auto;
+      img {
+        width: 60%;
+      }
     }
-  
     &__title {
       color: #FF6060;
     }
@@ -25,20 +27,19 @@
   
 
 @media screen and (width <= 768px) {
-  .navbar {
-  padding-bottom: 2em;   
-  gap: 0; 
-  .navbar__title {
-    font-size: small;
-    width: 5.2em;
-    text-transform: uppercase;
-    font-weight: 100;
-    &:active {
-      text-decoration: underline;
-    }
-    .navbar__logo {
-      width: 80%;
+    .navbar {
+      padding-bottom: 2em;   
+      gap: 0; 
+    .navbar__title {
+      font-size: small;
+      width: 6em;
+      text-transform: uppercase;
+      &:active {
+        text-decoration: underline;
+      }
+      .navbar img {
+        width: 80%;
+      }
     }
   }
-}
 }

@@ -9,10 +9,9 @@ function AppartementPage() {
   const location = useLocation();
 
   const [flat, setFlat] = useState(null);
-  useEffect(fetchApartmentData);
-
-  function fetchApartmentData() {
-    fetch("kasa-flats.json")
+  useEffect(() => {
+    const abortController = new AbortController();
+    fetch("kasa-flats.json", { signal: abortController.signal })
       .then((res) => res.json())
       .then((flats) => {
         const flat = flats.find(
@@ -20,8 +19,20 @@ function AppartementPage() {
         );
         setFlat(flat);
       })
-      .catch(console.error);
-  }
+      .catch((error) => {
+        if (error.name === "AbortError") {
+          console.log(
+            "extraction annulé pas de message d'erreur, pas 45000 rêquetes pour rien"
+          );
+        } else {
+          console.error(error);
+        }
+      });
+    return () => {
+      abortController.abort();
+    };
+  }, [location.state.apartmentId]);
+
   if (flat == null) return <div>Loading...</div>;
   return (
     <>
@@ -39,5 +50,4 @@ function AppartementPage() {
     </>
   );
 }
-
 export default AppartementPage;

@@ -12,12 +12,12 @@
       height: 100%;
       border-radius: 1rem;
       object-fit: cover;
-      filter: brightness(90%);
+      filter: brightness(70%);
     }
     &__title {
       display: flex;
       color: white;
-      width: 25%;
+      width: 75%;
       padding: 1rem;
       position: absolute;
     } 
@@ -26,13 +26,11 @@
 @media screen and (width <= 768px) {
     .location {
         margin: 0;
-        
         width: 325px;
         height: 295px;
     }
     .location__title {
-        margin-left: 1rem;
         padding: 1rem;
-        width: 25%;
+        width: 50%;
     }
 }

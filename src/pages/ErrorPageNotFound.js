@@ -12,7 +12,7 @@ function ErrorPageNotFound() {
         <div className="error__layout">
           <h1>404</h1>
           <h2>Oups ! La page que vous cherchez n'existe pas.</h2>
-          <Link to="/Accueil">Retourner sur la page d'accueil</Link>
+          <Link to="/">Retourner sur la page d'accueil</Link>
         </div>
       </Body>
     </>

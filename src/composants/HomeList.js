@@ -5,14 +5,25 @@ import Appartement from "./Appartement";
 function HomeList() {
   const [apartments, setApartments] = useState([]);
 
-  useEffect(fetchApartments, []);
-
-  function fetchApartments() {
-    fetch("kasa-flats.json")
+  useEffect(() => {
+    const abortController = new AbortController();
+    fetch("kasa-flats.json", { signal: abortController.signal })
       .then((res) => res.json())
       .then((res) => setApartments(res))
-      .catch(console.error);
-  }
+      .catch((error) => {
+        if (error.name === "AbortError") {
+          console.log(
+            "extraction annulé pas de message d'erreur, pas 45000 rêquetes pour rien"
+          );
+        } else {
+          console.error(error);
+        }
+      });
+    return () => {
+      abortController.abort();
+    };
+  }, []);
+
   return (
     <div className="home__layout">
       {apartments.map((apartment) => (

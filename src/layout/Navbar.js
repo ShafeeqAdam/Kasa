@@ -7,9 +7,9 @@ function Navbar() {
   return (
     <nav className="navbar">
       <div className="navbar__logo">
-        <img src={KasaHomeLogo} alt="logo de Kasa" width="60%" />
+        <img src={KasaHomeLogo} alt="logo de Kasa" />
       </div>
-      <Link to="/Accueil">
+      <Link to="/">
         <div className="navbar__title">Accueil</div>
       </Link>
       <Link to="/Apropos">
