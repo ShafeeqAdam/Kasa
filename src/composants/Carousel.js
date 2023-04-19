@@ -23,6 +23,9 @@ function Carousel(props) {
           className="fa-solid fa-chevron-left btn-previous"
           onClick={previousImage}
         ></i>
+        <span className="carousel__counter">
+          {currentImage + 1} / {pictures.length}
+        </span>
         <i
           className="fa-solid fa-chevron-right btn-next"
           onClick={nextImage}

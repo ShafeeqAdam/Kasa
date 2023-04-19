@@ -7,6 +7,16 @@
       height: 600px;
       border-radius: 1em;
     }
+    
+    .carousel__image span {
+      position: absolute;
+      width: 100%;
+      bottom: 1em;
+      text-align: center;
+      color: white;
+      left: 0;
+      text-align: center;
+    }
   
     .btn-previous,
     .btn-next {
@@ -26,7 +36,6 @@
       right: 0.5em;
     }
   }
-  
       
 @media screen and (width <= 768px) {
     .carousel{  
