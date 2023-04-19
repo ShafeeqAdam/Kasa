@@ -19,17 +19,21 @@ function Carousel(props) {
     <div className="carousel">
       <div className="carousel__image">
         <img src={pictures[currentImage]} alt="appart" />
-        <i
-          className="fa-solid fa-chevron-left btn-previous"
-          onClick={previousImage}
-        ></i>
-        <span className="carousel__counter">
-          {currentImage + 1} / {pictures.length}
-        </span>
-        <i
-          className="fa-solid fa-chevron-right btn-next"
-          onClick={nextImage}
-        ></i>
+        {pictures.length > 1 && (
+          <>
+            <i
+              className="fa-solid fa-chevron-left btn-previous"
+              onClick={previousImage}
+            ></i>
+            <span className="carousel__counter">
+              {currentImage + 1} / {pictures.length}
+            </span>
+            <i
+              className="fa-solid fa-chevron-right btn-next"
+              onClick={nextImage}
+            ></i>
+          </>
+        )}
       </div>
     </div>
   );
