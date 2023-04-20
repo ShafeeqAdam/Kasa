@@ -25,3 +25,10 @@ function Description(props) {
 }
 
 export default Description;
+
+/*Dans ce code on utilise :
+
+useState pour déclarer l'état 'isExpanded' 
+et 'toggleExpand' pour inverser la valeur de cet état à chaque qu'elle est appelée.
+
+*/

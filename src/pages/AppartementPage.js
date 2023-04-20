@@ -51,3 +51,20 @@ function AppartementPage() {
   );
 }
 export default AppartementPage;
+
+/* Dans ce code pour les page de chaque appartements, on utilise : 
+
+useLocation, pour obtenir l'ID de l'appartement sélectionné, 
+transmis via 'state'.
+
+useState, pour stocker 'flat' qui représente l'appartement à afficher.
+L'état de base est 'null', car on ne sait pas quel appartement va être
+affiché.
+
+useEffect, pour effectuer la requête vers le fichier JSON, qui contient
+les data des appartements, via "fetch".
+
+abortController, pour annuler les rêquetes inutiles en cours d'excution.
+
+key, pour éviter les erreurs d'affichage en React, 
+lorque l'on crée des éléments de liste à partir du tableau 'flats.equipements.*/

@@ -40,3 +40,14 @@ function Carousel(props) {
 }
 
 export default Carousel;
+
+/*Dans ce code qui affiche le carousel, on utilise : 
+
+'props' qui contient les propriétés passées en paramètre à la fonction 'Carousel'.
+En détail 'pictures' est extraite de l'obejt 'props' en utilisant 
+"const pictures = props.pictures"; 
+
+les fonctions 'next image' pour passer à l'image suivante et inversement
+pour 'previous image'.
+
+&& pour conditionner l'affichage des fontions 'next image' et 'previous image'*/

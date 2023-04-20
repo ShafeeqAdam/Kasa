@@ -42,3 +42,11 @@ const routes = [
 ];
 
 export default createBrowserRouter(routes);
+
+/*Code qui utilise le router de React pour la navigation sur le site.
+Il définit 4 routes et un Layout commun pour les routes (sauf la 404)
+Les routes sont exportées sous forme de "browserRouter.
+
+element Layout regroupe la "navbar", "body", et "footer", elle est utilisée
+pour définir la structure de la page sur chaque route (hors 404), 
+et Outlet affichera le contenu de des différentes routes.*/

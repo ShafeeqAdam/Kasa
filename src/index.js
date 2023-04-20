@@ -10,3 +10,6 @@ root.render(
     <RouterProvider router={routes} />
   </React.StrictMode>
 );
+
+/* fichier qui définit la racine de React 
+en appelant la méthode 'createRoot()' et rend le site dans le dom via l'id 'root'*/
