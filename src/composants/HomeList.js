@@ -6,22 +6,15 @@ function HomeList() {
   const [apartments, setApartments] = useState([]);
 
   useEffect(() => {
-    const abortController = new AbortController();
-    fetch("kasa-flats.json", { signal: abortController.signal })
-      .then((res) => res.json())
-      .then((res) => setApartments(res))
-      .catch((error) => {
-        if (error.name === "AbortError") {
-          console.log(
-            "extraction annulé pas de message d'erreur, pas 45000 rêquetes pour rien"
-          );
-        } else {
+    async function call() {
+      return fetch("kasa-flats.json")
+        .then((res) => res.json())
+        .then((res) => setApartments(res))
+        .catch((error) => {
           console.error(error);
-        }
-      });
-    return () => {
-      abortController.abort();
-    };
+        });
+    }
+    call();
   }, []);
 
   return (
