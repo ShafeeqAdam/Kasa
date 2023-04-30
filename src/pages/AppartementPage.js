@@ -3,10 +3,11 @@ import "../pages/AppartementPage.scss";
 import Description from "../composants/Description";
 import AppartementHeader from "../composants/AppartementHeader";
 import Carousel from "../composants/Carousel";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function AppartementPage() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [flat, setFlat] = useState(null);
   useEffect(() => {
@@ -17,14 +18,18 @@ function AppartementPage() {
           const flat = flats.find(
             (flat) => flat.id === location.state.apartmentId
           );
-          setFlat(flat);
+          if (flat) {
+            setFlat(flat);
+          } else {
+            navigate("/ErrorPageNotFound");
+          }
         })
         .catch((error) => {
           console.error(error);
         });
     }
     call();
-  }, [location, setFlat]);
+  }, [location, navigate, setFlat]);
 
   if (flat == null) return <div>Loading...</div>;
   return (
@@ -43,6 +48,7 @@ function AppartementPage() {
     </>
   );
 }
+
 export default AppartementPage;
 
 /* Dans ce code pour les page de chaque appartements, on utilise : 
