@@ -3,21 +3,21 @@ import "../pages/AppartementPage.scss";
 import Description from "../composants/Description";
 import AppartementHeader from "../composants/AppartementHeader";
 import Carousel from "../composants/Carousel";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
 function AppartementPage() {
   const location = useLocation();
   const navigate = useNavigate();
+  const params = useParams();
 
   const [flat, setFlat] = useState(null);
   useEffect(() => {
     async function call() {
-      fetch("kasa-flats.json")
+      fetch("/kasa-flats.json")
         .then((res) => res.json())
         .then((flats) => {
-          const flat = flats.find(
-            (flat) => flat.id === location.state.apartmentId
-          );
+          console.log("useParams", params);
+          const flat = flats.find((flat) => flat.id === params.id);
           if (flat) {
             setFlat(flat);
           } else {
@@ -29,7 +29,7 @@ function AppartementPage() {
         });
     }
     call();
-  }, [location, navigate, setFlat]);
+  }, [location, navigate, setFlat, params]);
 
   if (flat == null) return <div>Loading...</div>;
   return (
